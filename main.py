@@ -1,5 +1,7 @@
-def main():
-    print("Hello from fastapi-test-uv!")
+from fastapi import FastAPI
 
-if __name__ == "__main__":
-    main()
+app = FastAPI()
+
+@app.get("/")
+def home():
+    return {"Hello": "World"}
