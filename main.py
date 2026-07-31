@@ -15,3 +15,16 @@ def home():
 @app.get("/api/posts")
 def get_posts():
     return posts
+
+#- Path parameter: {id}
+#The value of the path parameter 'id' will be passed
+#to the function as the argument 'id'.
+
+#- Path parameters with types.
+#In this case, the type of the path parameter 'id' is
+#declared to be an int.
+#With that type declaration, FastAPI gives you
+#automatic request "parsing".
+@app.get("/api/posts/{id}")
+def get_post(id: int):
+    return posts[id - 1]
