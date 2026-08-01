@@ -3,9 +3,9 @@ from fastapi import FastAPI
 app = FastAPI()
 
 posts: list[dict] = [
-    {"id": 1, "author": "Author 1", "title": "Post 1", "content": "Content 1"},
-    {"id": 2, "author": "Author 2", "title": "Post 2", "content": "Content 2"},
-    {"id": 3, "author": "Author 3", "title": "Post 3", "content": "Content 3"},
+    {"id": 1, "author": "Luis", "title": "data structure", "content": "Data structures are methods for organizing, storing, and managing data..."},
+    {"id": 2, "author": "noelle", "title": "algorithms", "content": "Algorithms are step-by-step procedures for solving problems, generally categorized into fundamental programming techniques..."},
+    {"id": 3, "author": "nick", "title": "machin learnig", "content": "Machine Learning and AI Algorithms are used for data analysis and prediction..."},
 ]
 
 @app.get("/")
