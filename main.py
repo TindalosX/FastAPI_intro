@@ -40,3 +40,25 @@ def get_author_post(name: str | None = None):
 @app.get("/api/posts/{id}")
 def get_post(id: int):
     return posts[id - 1]
+
+#- Example add a new post.
+"""
+Data of the new post.
+{
+    "id": 4,
+    "author": "alan",
+    "title": "web development",
+    "content": "Web development is the work involved in developing a website for the Internet..."
+}
+"""
+
+#Create a new endpoint to send data.
+#To send data, you should use one of: POST (the most common), PUT, DELETE or PATCH.
+#To send data from a client (let's say, a browser) to your
+#API, you send it as a request body.
+
+#Endpoint usign the POST method.
+@app.post("/api/posts")
+def create_post(post: dict):
+    posts.append(post)
+    return post
