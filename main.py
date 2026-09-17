@@ -1,4 +1,5 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
+from typing import Annotated
 
 app = FastAPI()
 
@@ -26,6 +27,21 @@ def get_author_post(name: str | None = None):
 		response = [post for post in posts if name == post['author'] ]
 	else:
 		response = {"message": "Not given name"}
+	return response
+
+#- Additional validation for query parameters using:
+#-> Query from FastAPI.
+#-> Annotated from typing (Python's Standard Library).
+
+# FastAPI uses Annotated to add metadata to parameters and validate them.
+# The function Query() validates the parameter in this case the max_length for the string.
+ 
+@app.get("/api/posts/post")
+def by_title(q: Annotated[str, Query(max_length=25)]):
+	if title:
+		response = [ post for post in posts if title == post['title']]
+	else:
+		response = {"message": "Title not found."}
 	return response
 
 #- Path parameter: {id}
